@@ -1,0 +1,45 @@
+<%= form_for(@haunt) do |f| %>
+  <% if @haunt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@haunt.errors.count, "error") %> prohibited this haunt from being saved:</h2>
+
+      <ul>
+      <% @haunt.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :latitude %><p> (optional) </p> <br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %> <p> (optional) </p> <br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class ="field"> 
+  <%= f.label :image %> <p> (optional) </p> <br>
+  <%= f.text_area :image %> 
+  </div>
+  <div class = "field">
+    <%= f.hidden_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>

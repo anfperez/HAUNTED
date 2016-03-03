@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<p> <center>
+  <strong>Title:</strong>
+  <%= @haunt.title %>
+</p>
+
+<p> <center> 
+<img src="<%= @haunt.image%>" alt ="haunt_image">
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @haunt.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @haunt.longitude %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @haunt.address %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @haunt.description %>
+</p>
+
+<p>
+  <strong>Posted by:</strong>
+  <a href="/users/<%= @haunt.user_id %>"><%= current_user.name %></a>
+</p>
+
+<h2>Comments</h2>
+<% @haunt.comments.each do |comment| %>
+  <p>
+    <b>Commenter:</b>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <b>Comment:</b>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+<%= link_to 'Edit', edit_haunt_path(@haunt) %> |
+<%= link_to 'Back', haunts_path %>
+<br>
