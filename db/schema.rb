@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303170643) do
+ActiveRecord::Schema.define(version: 20160303204301) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
@@ -29,10 +29,13 @@ ActiveRecord::Schema.define(version: 20160303170643) do
     t.string   "address"
     t.text     "description"
     t.string   "title"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "user_id"
-    t.string   "image"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "haunts", ["user_id"], name: "index_haunts_on_user_id"

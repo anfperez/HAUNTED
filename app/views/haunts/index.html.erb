@@ -1,36 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Haunts</h1>
+<p> Search by Title (must match exactly) </p>
+<%= form_tag(haunts_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Haunts" %>
+<%= submit_tag "Search" %>
 
-<table>
-  <thead>
-    <tr>
-<!--       <th>Latitude</th>
-      <th>Longitude</th> -->
-      <th>Address</th>
-      <th>Description</th>
-      <th>Title</th>
-      <th> Posted by </th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @haunts.each do |haunt| %>
-      <tr>
-<!--         <td><%= haunt.latitude %></td>
-        <td><%= haunt.longitude %></td> -->
-        <td><%= haunt.address %></td>
-        <td><%= haunt.description %></td>
-        <td><%= haunt.title %></td>
-        <td><%= haunt.user_id %> </td>
-        <td><%= link_to 'Show', haunt %></td>
-        <td><%= link_to 'Edit', edit_haunt_path(haunt) %></td>
-        <td><%= link_to 'Destroy', haunt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if @haunts.present? %>
+  <%= render 'haunt' %>
+<% else %>
+  <p>There are no haunts containing the term(s) <%= params[:search] %>.</p>
+<% end %>
+<% end %>
 
 <br>
 
@@ -39,8 +20,8 @@
 
 
 <div style='width: 800px;'>
-  <div id="custom_style" style='width: 1000px; height: 400px;'></div>
-</div>
+    <div id="geolocation" style='width: 800px; height: 400px;'></div>
+  </div>
 
 <script type="text/javascript">
 
@@ -266,12 +247,31 @@ var mapStyle = [
     }
 
 ];
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {
+
+var handler = Gmaps.build('Google');
+handler.buildMap( { provider: {
   styles: mapStyle
-}, internal: {id: 'custom_style'}}, function(){
-  markers = handler.addMarkers(<%= raw @hash.to_json %>);
+}, internal: {id: 'geolocation'} }, function(){
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
+  // if(navigator.geolocation)
+  //   navigator.geolocation.getCurrentPosition(displayOnMap);
 });
+
+function displayOnMap(position){
+  var marker = handler.addMarker({
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+  });
+  handler.map.centerOn(marker);
+};
+// handler = Gmaps.build('Google');
+// handler.buildMap({ provider: {
+//   styles: mapStyle
+// }, internal: {id: 'custom_style'}}, function(){
+//   markers = handler.addMarkers(<%= raw @hash.to_json %>);
+//   handler.bounds.extendWith(markers);
+//   handler.fitMapToBounds();
+// });
 </script>

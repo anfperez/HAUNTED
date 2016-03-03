@@ -6,7 +6,7 @@
 </p>
 
 <p> <center> 
-<img src="<%= @haunt.image%>" alt ="haunt_image">
+<%= image_tag@haunt.image.url(:medium)%>
 </p>
 
 <p>
@@ -31,7 +31,7 @@
 
 <p>
   <strong>Posted by:</strong>
-  <a href="/users/<%= @haunt.user_id %>"><%= current_user.name %></a>
+  <a href="/users/<%= @haunt.user_id %>"><%= @haunt.user.name %></a>
 </p>
 
 <h2>Comments</h2>

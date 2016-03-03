@@ -1,0 +1,30 @@
+<h1> Search Results </h1>
+
+<table>
+  <thead>
+    <tr>
+<!--       <th>Latitude</th>
+      <th>Longitude</th> -->
+      <th>Address</th>
+      <th>Title</th>
+      <th> Posted by </th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @haunts.each do |haunt| %>
+      <tr>
+<!--         <td><%= haunt.latitude %></td>
+        <td><%= haunt.longitude %></td> -->
+        <td><%= haunt.address %></td>
+        <td><%= haunt.title %></td>
+        <td><%= haunt.user_id %> </td>
+        <td><%= link_to 'Show', haunt %></td>
+        <td><%= link_to 'Edit', edit_haunt_path(haunt) %></td>
+        <td><%= link_to 'Destroy', haunt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to '+1', upvote_haunt_path(haunt), method: :post %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

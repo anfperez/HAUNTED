@@ -4,12 +4,18 @@ class HauntsController < ApplicationController
   # GET /haunts
   # GET /haunts.json
   def index
-    @haunts = Haunt.all
+    # @haunts = Haunt.all
+    if params[:search]
+      # @haunts = Haunt.search(params[:search]).order("created_at DESC")
+      @haunts = Haunt.find_by_sql("SELECT * FROM haunts WHERE title LIKE '#{params[:search]}' OR description LIKE '#{params[:search]}'")
+    else
+      @haunts = Haunt.all.order('created_at DESC')
+    end
     @users = User.all
     @hash = Gmaps4rails.build_markers(@haunts) do |haunt, marker|
       marker.lat haunt.latitude
       marker.lng haunt.longitude
-      marker.infowindow haunt.description
+      marker.infowindow haunt.title 
       marker.picture( {
         "url" => "http://www.imagemagick.org/Usage/images/ghost.gif",
         "width" => 32,
@@ -72,6 +78,12 @@ class HauntsController < ApplicationController
       format.html { redirect_to haunts_url, notice: 'Haunt was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+    @haunt = Haunt.find(params[:id])
+    @haunt.votes.create
+    redirect_to(haunts_path)
   end
 
 
