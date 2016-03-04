@@ -82,8 +82,7 @@ class HauntsController < ApplicationController
 
   def upvote
     @haunt = Haunt.find(params[:id])
-    votes = @haunt.votes
-    @haunt.update(votes: votes + 1)
+    @haunt.votes.create
     redirect_to(haunts_path)
   end
 
