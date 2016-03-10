@@ -7,7 +7,7 @@ HAUNTED is a site intended for paranormal enthusiasts to identify creepy places 
 <h2> Technologies Used </h2>
 <ul>
 <li> HTML5 </li>
-<li> CSS3 </li>
+<li> CSS3 / Bootstrap </li>
 <li> Ruby </li>
 <li> Rails </li>
 <li> Gems: gmaps4rails, geocoder </li>
