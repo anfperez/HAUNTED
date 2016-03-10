@@ -15,7 +15,7 @@ HAUNTED is a site intended for paranormal enthusiasts to identify creepy places 
 
 <h2> Media </h2>
 <ul>
-<li> <a href = "https://snazzymaps.com/">Snazzy Maps</a> </li>
+<li> <a href = "https://snazzymaps.com/">Snazzy Maps</a> - <a href="https://snazzymaps.com/style/8297/dark-style-4-purple-map">Dark Style 4 - Purple Map by Domenico Marco di Donna</a>
 </ul>
 
 <h2> Images </h2>
