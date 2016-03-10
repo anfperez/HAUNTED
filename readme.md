@@ -38,7 +38,7 @@ HAUNTED is a site intended for paranormal enthusiasts to identify creepy places 
 <img src = "http://i.imgur.com/BGQHME6.png" alt = "haunt">
 
 <p> Haunted place (uploaded by user) </p>
-<img src ="http://i.imgur.com/BGQHME6.png" alt = "emp">
+<img src ="http://i.imgur.com/PaCVsYt.png" alt = "emp">
 
 <p> Leave comment </p>
 <img src = "http://i.imgur.com/LxW1CGD.png" alt = "comment">
