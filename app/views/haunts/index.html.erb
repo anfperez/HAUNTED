@@ -5,12 +5,13 @@
 <%= form_tag(haunts_path, :method => "get", id: "search-form") do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search Haunts" %>
 <%= submit_tag "Search" %>
+<% end %>
 
 <% if @haunts.present? %>
   <%= render 'haunt' %>
 <% else %>
   <p>There are no haunts containing the term(s) <%= params[:search] %>.</p>
-<% end %>
+
 <% end %>
 
 <br>
@@ -24,7 +25,6 @@
   </div>
 
 <script type="text/javascript">
-
 var mapStyle = [
     {
         "featureType": "all",
@@ -245,9 +245,7 @@ var mapStyle = [
             }
         ]
     }
-
 ];
-
 var handler = Gmaps.build('Google');
 handler.buildMap( { provider: {
   styles: mapStyle
@@ -258,7 +256,6 @@ handler.buildMap( { provider: {
   // if(navigator.geolocation)
   //   navigator.geolocation.getCurrentPosition(displayOnMap);
 });
-
 function displayOnMap(position){
   var marker = handler.addMarker({
     lat: position.coords.latitude,
