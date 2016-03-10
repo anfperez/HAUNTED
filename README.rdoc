@@ -1,28 +1,19 @@
-== README
+<h1> HAUNTED </h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h2> Description </h2>
+HAUNTED is a site intended for paranormal enthusiasts to identify creepy places around the globe. Users can sign up for an account, pinpoint specific places on a Google map, and leave comments about the creepy places they've visited.
 
-Things you may want to cover:
+<h2> Technologies Used </h2>
+<ul>
+<li> HTML5 </li>
+<li> CSS3 </li>
+<li> Ruby </li>
+<li> Rails </li>
+<li> Gems: gmaps4rails, geocoder </li>
+</ul>
 
-* Ruby version
+<h2> Media </h2>
+<ul>
+<li> <a href = "https://snazzymaps.com/">Snazzy Maps</a> </li>
+</ul>
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
