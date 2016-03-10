@@ -1,4 +1,5 @@
 <h1> HAUNTED </h1>
+<a href = "https://hauntedmaps.herokuapp.com">Go to HAUNTED!</a>
 
 <h2> Description</h2>
 HAUNTED is a site intended for paranormal enthusiasts to identify creepy places around the globe. Users can sign up for an account, pinpoint specific places on a Google map, and leave comments about the creepy places they've visited.
